@@ -78,36 +78,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingTop: 40,
     backgroundColor: "#004d00"
-  },
-  header: {
-    fontSize: 30,
-    fontWeight: "bold",
-    color: "#fff",
-    opacity: 0.6,
-    textAlign: "center"
-  },
-  textSm: {
-    fontSize: 16,
-    marginTop: 20,
-    fontWeight: "bold",
-    color: "#fff",
-    opacity: 0.6,
-    textAlign: "center"
-  },
-  inputWrap: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 30
-  },
-  input: {
-    width: 100,
-    height: 40,
-    borderColor: "#7a42f4",
-    borderWidth: 1,
-    color: "#fff"
-  },
-  noMarginTop: {
-    marginTop: 0
   }
 });
