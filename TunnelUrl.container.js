@@ -24,6 +24,16 @@ export default TunnelChangeUrl = () => {
       console.log(`Error: Couldn't get ${dest.toLowerCase()} data ${key}. ${error}`);
     }
   };
+  
+  const AS_setNewTunnelUrl = async isLocal => {
+    const key = isLocal ? "@Fx_tunnelUrlLocal" : "@Fx_tunnelUrlOutbound";
+    try {
+      await AsyncStorage.setItem(key, currentTunnelUrl);
+      setNewTunnelUrl(currentTunnelUrl);
+    } catch (error) {
+      console.log(`Error: Couldn't set local data ${key}. ${error}`);
+    }
+  };
 
   const handleTunnelUrlChange = (e, isLocal) => {
     let value = e.nativeEvent.text.trim();
