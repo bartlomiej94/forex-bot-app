@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
 import Button from "./../../common/button";
 import { AsyncStorage } from "react-native";
-import TunnelUrlWindow from "./../../common/tunnelUrlWindow";
+import TunnelUrlWindow from "./../components/TunnelUrl.component.js";
 
 export default TunnelChangeUrl = () => {
   const [newTunnelUrlLocal, setNewTunnelUrlLocal] = useState("");
