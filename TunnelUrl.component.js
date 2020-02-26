@@ -15,7 +15,6 @@ export default TunnelUrlWindow = ({
   const AS_setNewTunnelUrl = async isLocal => {
     const key = isLocal ? "@Fx_tunnelUrlLocal" : "@Fx_tunnelUrlOutbound";
     try {
-      console.log(currentTunnelUrl);
       await AsyncStorage.setItem(key, currentTunnelUrl);
       setNewTunnelUrl(currentTunnelUrl);
     } catch (error) {
