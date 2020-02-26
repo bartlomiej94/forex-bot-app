@@ -12,6 +12,7 @@ export default TunnelChangeUrl = () => {
 
   const AS_getCurrentTunnelUrl = async isLocal => {
     const dest = isLocal ? "Local" : "Outbound";
+    
     try {
       const key = `@Fx_tunnelUrl${dest}`;
       const value = await AsyncStorage.getItem(key);
