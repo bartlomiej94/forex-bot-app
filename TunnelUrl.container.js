@@ -10,27 +10,17 @@ export default TunnelChangeUrl = () => {
   const [newTunnelUrlOutbound, setNewTunnelUrlOutbound] = useState("");
   const [currentTunnelUrlOutbound, setCurrentTunnelUrlOutbound] = useState("");
 
-  const AS_getCurrentTunnelUrlLocal = async () => {
+  const AS_getCurrentTunnelUrl = async isLocal => {
+    const dest = isLocal ? "Local" : "Outbound";
     try {
-      const key = "@Fx_tunnelUrlLocal";
+      const key = `@Fx_tunnelUrl${dest}`;
       const value = await AsyncStorage.getItem(key);
       if (value !== null) {
-        setNewTunnelUrlLocal(value);
+        if (isLocal) setNewTunnelUrlLocal(value);
+        else setNewTunnelUrlOutbound(value);
       }
     } catch (error) {
-      console.log(`Error: Couldn't get local data ${key}. ${error}`);
-    }
-  };
-
-  const AS_getCurrentTunnelUrlOutbound = async () => {
-    try {
-      const key = "@Fx_tunnelUrlOutbound";
-      const value = await AsyncStorage.getItem(key);
-      if (value !== null) {
-        setNewTunnelUrlOutbound(value);
-      }
-    } catch (error) {
-      console.log(`Error: Couldn't get local data ${key}. ${error}`);
+      console.log(`Error: Couldn't get ${dest.toLowerCase()} data ${key}. ${error}`);
     }
   };
 
@@ -42,8 +32,8 @@ export default TunnelChangeUrl = () => {
   };
 
   useEffect(() => {
-    AS_getCurrentTunnelUrlLocal();
-    AS_getCurrentTunnelUrlOutbound();
+    AS_getCurrentTunnelUrl(true);
+    AS_getCurrentTunnelUrl(false);
   }, []);
 
   return (
@@ -51,7 +41,7 @@ export default TunnelChangeUrl = () => {
       <TunnelUrlWindow
         handleTunnelUrlChange={handleTunnelUrlChange}
         isLocal={true}
-        currentTunnelUrl={currentTunnelUrlLocal}
+        currentTunnelUrl={currentTunnelUrl(true)}
         newTunnelUrl={newTunnelUrlLocal}
         setNewTunnelUrl={setNewTunnelUrlLocal}
         setCurrentTunnelUrl={setCurrentTunnelUrlLocal}
@@ -61,7 +51,7 @@ export default TunnelChangeUrl = () => {
       <TunnelUrlWindow
         handleTunnelUrlChange={handleTunnelUrlChange}
         isLocal={false}
-        currentTunnelUrl={currentTunnelUrlOutbound}
+        currentTunnelUrl={currentTunnelUrl(false)}
         newTunnelUrl={newTunnelUrlOutbound}
         setNewTunnelUrl={setNewTunnelUrlOutbound}
         setCurrentTunnelUrl={setCurrentTunnelUrlOutbound}
