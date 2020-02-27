@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, TextInput, StyleSheet, AsyncStorage } from "react-native";
 import Button from "./../../common/button";
-import TunnelUrlWindow from "./TunnelUrl.component.js";
+import TunnelUrl from "./TunnelUrl.component.js";
 
 export default TunnelChangeUrl = () => {
   const [newTunnelUrlLocal, setNewTunnelUrlLocal] = useState("");
@@ -49,7 +49,7 @@ export default TunnelChangeUrl = () => {
 
   return (
     <View style={styles.container}>
-      <TunnelUrlWindow
+      <TunnelUrl
         handleTunnelUrlChange={handleTunnelUrlChange}
         isLocal={true}
         currentTunnelUrl={currentTunnelUrl(true)}
@@ -59,7 +59,7 @@ export default TunnelChangeUrl = () => {
         label="Local"
         info="Used by the other trader to access your data."
       />
-      <TunnelUrlWindow
+      <TunnelUrl
         handleTunnelUrlChange={handleTunnelUrlChange}
         isLocal={false}
         currentTunnelUrl={currentTunnelUrl(false)}
