@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { CheckBox } from "react-native-elements";
 import { ColorPicker } from "react-native-color-picker";
