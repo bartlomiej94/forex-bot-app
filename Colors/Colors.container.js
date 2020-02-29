@@ -8,7 +8,7 @@ export default Colours = ({ navigation }) => {
   const [currentColors, setCurrentColors] = useState([]);
   const [animationType, setAnimationType] = useState("none");
   const [isBoxChecked, setIsBoxChecked] = useState([]);
-  const [isInfoboxOpen, setIsInfoboxOpen] = useState([Array(5).fill(false)]);
+  const [isInfoboxOpen, setIsInfoboxOpen] = useState(Array(5).fill(false));
 
   const tunnelUrl = navigation.getParam("tunnelUrl");
 
