@@ -17,8 +17,8 @@ export default TraderPositions = ({ navigation }) => {
   }, []);
 
   useEffect(() => {
-    if (typeof positions === "object" || typeof positions === "string")
-      setIsLoading(false);
+    if (typeof positions === "object" || typeof positions === "string") setIsLoading(false);
+    else setIsLoading(true);  
   }, [positions]);
 
   const fetchPositions = (page = 1) => {
