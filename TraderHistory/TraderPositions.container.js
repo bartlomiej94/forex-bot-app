@@ -93,7 +93,7 @@ export default TraderPositions = ({ navigation }) => {
 
   return (
     <TraderPositionsComponent
-      isLoading={isLoading}
+      isLoading
       positions={positions}
       timePeriod={timePeriod}
       handleTimePeriod={handleTimePeriod}
