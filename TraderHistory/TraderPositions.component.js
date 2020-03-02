@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import Loader from "../../common/Loader";
-import ErrorPage from "./../../common/ErrorPage";
+import DialogBoxOrg from "../../common/dialogBoxes/DialogBoxOrg";
 import { LinearGradient } from "expo-linear-gradient";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
@@ -10,7 +10,8 @@ export default TraderPositionsComponent = ({
   positions,
   timePeriod,
   handleTimePeriod,
-  toPriceFormat
+  toPriceFormat,
+  navigation
 }) => {
   // Colors.
   const lightRed = "#ff1a1a";
@@ -21,9 +22,12 @@ export default TraderPositionsComponent = ({
   if (isLoading) return <Loader />;
   if (typeof positions === "string")
     return (
-      <ErrorPage
-        errHeader="Couldn't connect to the server"
-        errMessage={positions}
+      <DialogBoxOrg
+        isError
+        title="Couldn't connect to the server"
+        message={positions}
+        color="#ff8080"
+        onClose={() => navigation.goBack()}
       />
     );
 
