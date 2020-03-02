@@ -42,7 +42,7 @@ export default Colours = ({ navigation }) => {
     setIsBoxChecked(statusArr);
   };
 
-  const handleInfobox = (index, shouldOpen, resetAll = false) => {
+  const handleInfobox = (index, shouldOpen, resetAll) => {
     const infoboxArr = [...isInfoboxOpen];
 
     if (resetAll) {
